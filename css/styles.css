@@ -1,0 +1,103 @@
+/***************************************************************************************/
+/*Configuracion Globbal ****************************************************************/
+/***************************************************************************************/
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f1f1f1;
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+    position: relative;
+}
+/***************************************************************************************/
+/*Formulario ***************************************************************************/
+/***************************************************************************************/
+
+.chat-form, .web-message {
+    width: 300px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 1000;
+}
+.chat-form {
+    padding: 20px;
+    display: none;
+}
+.web-message {
+    height: 400px;
+    display: none;
+}
+.minimize-icon, .minimize-chat {
+    cursor: pointer;
+}
+.chat-icon {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    cursor: pointer;
+    z-index: 1000;
+}
+.chat-icon img {
+    width: 50px;
+    height: 50px;
+}
+
+
+
+/***************************************************************************************/
+/*pantallas entre 600px y 1024px *******************************************************/
+/***************************************************************************************/
+
+/* Tablets -  */
+@media (min-width: 600px) and (max-width: 1024px) {
+    .chat-form, .web-message {
+        width: 95%; 
+        height: 95%;
+        overflow-y: auto;
+        bottom: 20px;
+        right: 20px;
+    }
+    .chat-icon img {
+        width: 45px;
+        height: 45px;
+    }
+}
+
+/***************************************************************************************/
+/*pantallas Dispositivos Moviles *******************************************************/
+/***************************************************************************************/
+@media (max-width: 600px) {
+    .chat-form {
+        padding: 15px; 
+    }
+
+    .chat-form h2 {
+        font-size: 1.2rem; /* Reducir el tamaño del título en pantallas pequeñas */
+    }
+
+    .chat-form input, .chat-form select, .chat-form button {
+        font-size: 0.9rem; /* Ajustar tamaño de texto */
+    }
+    .chat-form, .web-message {
+        width: 95%; 
+        height: 95%;
+        bottom: 10px;
+        right: 10px;
+        left: 10px;
+    }
+    .chat-icon img {
+        width: 40px;
+        height: 40px;
+    }
+    .chat-icon{
+        bottom: 50px;
+    }
+}
+
