@@ -34,7 +34,9 @@ cd formWebMessageGenesysCloud
 
 Edita el archivo script.js y actualiza los siguientes valores:
 deploymentId: 'xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx', // Deployment ID generado en Genesys Cloud
+
 environment: 'prod-usw2', // Región correspondiente a tu organización (ejemplo: 'prod', 'prod-euw1', 'prod-use1', etc.)
+
 
 ### 3.  Personaliza los campos del formulario
 
