@@ -106,12 +106,13 @@ document.addEventListener('DOMContentLoaded', function() {
 	g[e].c = es;
 	ys = document.createElement('script'); ys.async = 1; ys.src = n; ys.charset = 'utf-8'; document.head.appendChild(ys);
   })(window, 'Genesys', 'https://apps.mypurecloud.com/genesys-bootstrap/genesys.min.js', {
-	environment: 'prod',
+	environment: 'prod', // Este valor varía según la región donde está la organización
 	deploymentId: 'xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx' // Asignar el valor del deploymentID
 });
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+// Funciones del SDK /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 // Suscribir al evento Messenger.ready: muestra el botón de inicio personalizado cuando Messenger esté listo
 Genesys('subscribe','Messenger.ready',(e) =>{
@@ -153,9 +154,6 @@ Genesys("subscribe", "MessagingService.messagesReceived", function({ data }) {
   obj= JSON.stringify(data);
   datos = JSON.parse(obj);
   direccion = datos.messages[0].direction;
-  /*dispalyWindow1= localStorage.getItem('_bf4550f6-7860-406c-9934-daf855334c5a:gcmcopn');
-  const parametroJSON = JSON.parse(dispalyWindow1);
-  console.log('direccion1:'+ parametroJSON.value);*/
   dispalyWindow = localStorage.getItem('displayWindow');
   console.log("Se imprime datos");
   console.log(direccion);
@@ -220,7 +218,7 @@ const showGenesysChat=()=>{
 const openMessenger = () => {
   console.log('Opening messenger...');
  
-    // Capturar los valores de los campos
+    // Capturar los valores del formulario
     nombre = document.querySelector('input[name="nombre"]').value;
     apellido = document.querySelector('input[name="apellido"]').value;
     email = document.querySelector('input[name="email"]').value;
@@ -243,6 +241,7 @@ const openMessenger = () => {
 
   //Genesys('command', 'Messenger.open');
   console.log("Atachando datos");
+  // comando para adjuntar los valores a la interacciones (Valores se insertan en el participant data)
   Genesys("command", "Database.set", {
     messaging: {
       customAttributes: {
